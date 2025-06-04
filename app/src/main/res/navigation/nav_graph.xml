@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_nfc">
+
+    <fragment
+        android:id="@+id/navigation_nfc"
+        android:name="com.example.investcitynfc.ui.nfc.NfcFragment"
+        android:label="NFC" />
+
+    <fragment
+        android:id="@+id/navigation_bank"
+        android:name="com.example.investcitynfc.ui.bank.BankFragment"
+        android:label="Banco">
+        <action
+            android:id="@+id/action_bank_to_account_details"
+            app:destination="@id/account_details_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_cards"
+        android:name="com.example.investcitynfc.ui.cards.CardsFragment"
+        android:label="Cartas" />
+
+    <fragment
+        android:id="@+id/navigation_credits"
+        android:name="com.example.investcitynfc.ui.credits.CreditsFragment"
+        android:label="Créditos" />
+
+    <fragment
+        android:id="@+id/navigation_instructions"
+        android:name="com.example.investcitynfc.ui.instructions.InstructionsFragment"
+        android:label="Instruções" />
+
+    <fragment
+        android:id="@+id/account_details_fragment"
+        android:name="com.example.investcitynfc.ui.bank.AccountDetailsFragment"
+        android:label="Detalhes da Conta">
+        <argument
+            android:name="accountId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_account_details_to_transfer"
+            app:destination="@id/transfer_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/transfer_fragment"
+        android:name="com.example.investcitynfc.ui.bank.TransferFragment"
+        android:label="Transferência">
+        <argument
+            android:name="fromAccountId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation> 
